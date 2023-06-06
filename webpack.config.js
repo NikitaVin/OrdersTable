@@ -59,10 +59,16 @@ module.exports = {
                     "sass-loader",
                 ],
       },
+      { test: /\.svg$/, loader: 'svg-inline-loader' },
       {
         test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
         use: ["file-loader"],
       },
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: ['@svgr/webpack'],
+      }
     ],
   },
   plugins: [
